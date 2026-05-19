@@ -33,4 +33,16 @@ function mostrarPersonagem(index) {
 document.getElementById("btnBuscar").addEventListener("click", () => {
   const busca = document.getElementById("campoBusca").value.toLowerCase();
 
+  const encontrado = personagens.findIndex((p) =>
+    p.name.toLowerCase().includes(busca),
+  );
 
+  // Caso eu digitar o nome do personagem e ele existir, o personagem foi encontrado, caso ele não existir, ele não foi encontrado.
+
+  if (personagens == !-1) {
+    indexAtual = encontrado;
+    exibirPersonagem(indexAtual);
+  } else {
+    alert("Personagem não encontrado!");
+  }
+});
