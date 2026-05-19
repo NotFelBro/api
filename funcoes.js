@@ -29,3 +29,8 @@ function mostrarPersonagem(index) {
   document.getElementById("campo4").value = p.actor;
   document.getElementById("imgPersonagem").src = p.image;
 }
+// O botão tem uma função de click no botão do lado do input de busca, ele vai trazer os elementos dos personagens e esses elementos aparecem nas informações abaixo.
+document.getElementById("btnBuscar").addEventListener("click", () => {
+  const busca = document.getElementById("campoBusca").value.toLowerCase();
+
+
