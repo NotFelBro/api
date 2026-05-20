@@ -9,15 +9,15 @@ function mostrarPersonagem(index) {
   const p = personagens[index];
   if (!p) return;
 
-  document.getElementById("campo1").value = p.name;
-  document.getElementById("campo2").value = p.name;
-  document.getElementById("campo3").value = p.name;
-  document.getElementById("campo4").value = p.name;
-  document.getElementById("imgPersonagem").src = p.image;
+  document.getElementById("quadro1").value = p.name;
+  document.getElementById("quadro2").value = p.name;
+  document.getElementById("quadro3").value = p.name;
+  document.getElementById("quadro4").value = p.name;
+  document.getElementById("imagePersonagem").src = p.image;
 }
 
-document.getElementById("btnBuscar").addEventListener("click", () => {
-  const busca = document.getElementById("campoBusca").value.toLowerCase();
+document.getElementById("btnB").addEventListener("click", () => {
+  const busca = document.getElementById("quadroB").value.toLowerCase();
   const encontrado = personagens.findIndex((p) =>
     p.name.toLowerCase().includes(busca),
   );
@@ -30,14 +30,14 @@ document.getElementById("btnBuscar").addEventListener("click", () => {
   }
 });
 
-document.getElementById("btnVoltar").addEventListener("click", () => {
+document.getElementById("btnV").addEventListener("click", () => {
   if (indexAtual > 0) {
     indexAtual--;
     mostrarPersonagem(indexAtual);
   }
 });
 
-document.getElementById("btnAvancar").addEventListener("click", () => {
+document.getElementById("btnA").addEventListener("click", () => {
   if (indexAtual < personagens.length - 1) {
     indexAtual++;
     mostrarPersonagem(indexAtual);
