@@ -5,19 +5,25 @@
   margin: 0;
   padding: 0;
 }
+body {
+  background-color: rgb(38, 38, 105);
+}
 
 header {
   display: flex;
   justify-content: space-between;
   align-items: center;
-  background-color: gray;
+  background-color: rgb(255, 255, 255);
   width: 100%;
   height: 60px;
-  padding: 0 20px;
+  padding: 0 1px;
+  background-color: rgb(172, 147, 114);
 }
 
 header img {
   display: flex;
+  object-fit: cover;
+  width: 179px;
 }
 
 header nav {
@@ -41,6 +47,11 @@ header button {
   width: 50px;
   border-radius: 5px;
   cursor: pointer;
+  background-color: white;
+}
+
+header button:hover {
+  background-color: rgb(0, 255, 0);
 }
 
 /* main */
@@ -57,6 +68,8 @@ main h2 {
   display: flex;
   justify-content: center;
   margin: 15px 0 0 0;
+  color: white;
+  margin-top: 110px;
 }
 
 section {
@@ -65,13 +78,14 @@ section {
   justify-content: center;
   align-items: center;
   gap: 40px;
-  margin-top: 100px;
+  margin-top: 30px;
 }
 
 section img {
-  border: 1px solid;
+  border: 1px solid burlywood;
   width: 600px;
   height: 600px;
+  background-color: black;
 }
 
 article {
@@ -98,7 +112,7 @@ article button {
   cursor: pointer;
 }
 
-article .botoes {
+.botoes {
   display: flex;
   flex-direction: row;
   justify-content: space-between;
