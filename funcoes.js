@@ -2,9 +2,27 @@ let personagens = [];
 let indexAtual = 0;
 
 async function carregarPersonagens() {
-  const response = await fetch("https://hp-api.onrender.com/api/characters");
-  personagens = await response.json();
+  try {
+    const response = await fetch("https://hp-api.onrender.com/api/characters");
+
+    if (response.status === 404) {
+      throw new Error("404 - Personagem não encontrado.");
+    }
+    if (response.status === 500) {
+      throw new Error("500 - Falha no servidor.");
+    }
+
+    personagens = await response.json();
+    mostrarPersonagem(indexAtual);
+  } catch (error) {
+    const divErro = document.createElement("div");
+    divErro.textContent = error.message;
+    divErro.style.color = "red";
+    divErro.style.fontWeight = "bold";
+    document.body.appendChild(divErro);
+  }
 }
+
 function mostrarPersonagem(index) {
   const p = personagens[index];
   if (!p) return;
@@ -22,11 +40,22 @@ document.getElementById("btnB").addEventListener("click", () => {
     p.name.toLowerCase().includes(busca),
   );
 
+  const erroExistente = document.getElementById("divErro");
+  if (erroExistente) erroExistente.remove();
+
   if (encontrado !== -1) {
     indexAtual = encontrado;
     mostrarPersonagem(indexAtual);
   } else {
-    alert("Persongem não encontrado!");
+    const erro = new Error("404 - Personagem não econtrado.");
+    console.log(erro.message);
+
+    const divErro = document.createElement("div");
+    divErro.id = "DivErro";
+    divErro = textContent = erro.message;
+    divErro.style.color = "red";
+    divErro.style.fontWeight = "bold";
+    document.body.appendChild(divErro);
   }
 });
 
