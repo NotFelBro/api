@@ -17,23 +17,41 @@ function mostrarPersonagem(index) {
   document.getElementById("quadro4").value = p.name;
   document.getElementById("imagePersonagem").src = p.image;
 }
+
 const inputB = document.getElementById("quadroB");
+const imagePersonagem = document.getElementById("imagePersonagem");
+const imagemErro = "./erro.avif";
 
 document.getElementById("btnB").addEventListener("click", () => {
-  const busca = document.getElementById("quadroB").value.toLowerCase();
+  const busca = inputB.value.toLowerCase();
+
+  if (busca === "") {
+    inputB.placeholder = "Digite algo antes de buscar.";
+    inputB.classList.add("erro");
+    imagePersonagem.src = imagemErro;
+    return;
+  }
+
   const encontrado = personagens.findIndex((p) =>
     p.name.toLowerCase().includes(busca),
   );
 
   if (encontrado !== -1) {
     inputB.placeholder = "Digite o nome do personagem.";
-    inputB.style.color = "";
+    inputB.classList.remove("erro");
     indexAtual = encontrado;
     mostrarPersonagem(indexAtual);
   } else {
     inputB.value = "";
     inputB.placeholder = "Personagem inexistente.";
     inputB.classList.add("erro");
+    imagePersonagem.src = imagemErro;
+
+    if (busca === "") {
+      inputB.placeholder = "Digite algo antes de buscar.";
+    } else {
+      inputB.placeholder = "Personagem inexistente";
+    }
   }
 });
 document.getElementById("quadroB").addEventListener("input", () => {
