@@ -15,7 +15,7 @@ function mostrarPersonagem(index) {
   document.getElementById("quadro2").value = p.name;
   document.getElementById("quadro3").value = p.name;
   document.getElementById("quadro4").value = p.name;
-  document.getElementById("imagePersonagem").src = p.image;
+  document.getElementById("imagePersonagem").src = p.image || imagemErro;
 }
 
 const inputB = document.getElementById("quadroB");
