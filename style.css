@@ -40,6 +40,10 @@ header input {
   margin: 0 5px 0 0;
 }
 
+input.erro::placeholder {
+  color: red;
+}
+
 header button {
   display: flex;
   align-items: center;
