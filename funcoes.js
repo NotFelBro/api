@@ -135,5 +135,3 @@ document.getElementById("btnA").addEventListener("click", () => {
 });
 
 carregarPersonagens(); // carrega o personagem no quadro da imagem
-
-// ============================================================ função mobile ===================================================== //
