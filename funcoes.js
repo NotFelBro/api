@@ -1,5 +1,5 @@
 let personagens = [];
-let indexAtual = 0;
+let indexAtual = -1;
 
 async function carregarPersonagens() {
   try {
@@ -10,7 +10,6 @@ async function carregarPersonagens() {
       );
     }
     personagens = await response.json();
-    mostrarPersonagem(indexAtual);
   } catch (error) {
     console.error("Erro na API:", error.message);
     imagePersonagem.src = imagemErro;
