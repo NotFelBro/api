@@ -2,9 +2,19 @@ let personagens = [];
 let indexAtual = 0;
 
 async function carregarPersonagens() {
-  const response = await fetch("https://hp-api.onrender.com/api/characters");
-  personagens = await response.json();
-  mostrarPersonagem(indexAtual);
+  try {
+    const response = await fetch("https://hp-api.onrender.com/api/characters");
+    if (!response.ok) {
+      throw new Error(
+        `Erro ${response.status} - Falha ao carregar personagens.`,
+      );
+    }
+    personagens = await response.json();
+    mostrarPersonagem(indexAtual);
+  } catch (error) {
+    console.error("Erro na API:", error.message);
+    imagePersonagem.src = imagemErro;
+  }
 }
 
 function mostrarPersonagem(index) {
@@ -15,6 +25,11 @@ function mostrarPersonagem(index) {
   document.getElementById("quadro2").value = p.name;
   document.getElementById("quadro3").value = p.name;
   document.getElementById("quadro4").value = p.name;
+
+  if (!p.image) {
+    console.warn(`Peronsagem "${p.name}" não possui imagem.`);
+  }
+
   document.getElementById("imagePersonagem").src = p.image || imagemErro;
 }
 
@@ -32,28 +47,28 @@ document.getElementById("btnB").addEventListener("click", () => {
     return;
   }
 
-  const encontrado = personagens.findIndex((p) =>
-    p.name.toLowerCase().includes(busca),
-  );
+  try {
+    const encontrado = personagens.findIndex((p) =>
+      p.name.toLowerCase().includes(busca),
+    );
 
-  if (encontrado !== -1) {
+    if (encontrado === -1) {
+      throw new Error(`Personagem "${busca}" não encontrado.`);
+    }
+
     inputB.placeholder = "Digite o nome do personagem.";
     inputB.classList.remove("erro");
     indexAtual = encontrado;
     mostrarPersonagem(indexAtual);
-  } else {
+  } catch (error) {
+    console.error("Erro na busca:", error.message);
     inputB.value = "";
     inputB.placeholder = "Personagem inexistente.";
     inputB.classList.add("erro");
     imagePersonagem.src = imagemErro;
-
-    if (busca === "") {
-      inputB.placeholder = "Digite algo antes de buscar.";
-    } else {
-      inputB.placeholder = "Personagem inexistente";
-    }
   }
 });
+
 document.getElementById("quadroB").addEventListener("input", () => {
   inputB.placeholder = "Digite o nome do personagem";
   inputB.classList.remove("erro");
