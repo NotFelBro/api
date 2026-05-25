@@ -201,3 +201,85 @@ article button {
     gap: 12px;
   }
 }
+
+/* tablet */
+
+@media (min-width: 769px) and (max-width: 1024px) {
+  header {
+    padding: 0 20px;
+  }
+
+  header img {
+    width: 150px;
+  }
+
+  header input {
+    max-width: 200px;
+  }
+
+  main h2 {
+    margin-top: 40px;
+    font-size: 1.4rem;
+  }
+
+  section {
+    flex-direction: column;
+    gap: 30px;
+    margin-top: 25px;
+    padding: 0 30px;
+  }
+
+  section img {
+    width: 100%;
+    max-width: 500px;
+    gap: 400px;
+  }
+
+  article {
+    width: 100%;
+    max-width: 500px;
+    gap: 40px;
+  }
+
+  article input {
+    height: 55px;
+    font-size: 15px;
+  }
+
+  article button {
+    height: 46px;
+    width: 120px;
+    font-size: 15px;
+  }
+}
+
+/* notebook */
+
+@media (min-width: 1025px) and (max-width: 1440px) {
+  header {
+    padding: 0 30px;
+  }
+
+  main h2 {
+    margin-top: 60px;
+  }
+
+  section {
+    gap: 30px;
+    margin-top: 25px;
+  }
+
+  section img {
+    width: 420px;
+    height: 420px;
+  }
+
+  article {
+    width: 320px;
+    gap: 50px;
+  }
+
+  article input {
+    height: 55px;
+  }
+}
