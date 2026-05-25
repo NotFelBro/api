@@ -6,6 +6,20 @@
   padding: 0;
 }
 
+@import url("https://fonts.googleapis.com/css2?family=MedievalSharp&family=Cinzel:wght@400;600;700&family=IM+Fell+English:ital@0;1&display=swap");
+
+:root {
+  --ouro: #c9a84c;
+  --ouro-claro: #f0d080;
+  --ouro-esucro: #7a5f1a;
+  --escuro: #0d0b1f;
+  --roxo: #1a0a2e;
+  --marrom: #6b1a1a;
+  --pergaminho: #f5e9c8;
+  --pergaminho2: #e8d5a0;
+  --brilho: rgba(201, 168, 76, 0.35);
+  --sombra: rgba(0, 0, 0, 0.7);
+}
 body {
   background-color: rgb(38, 38, 105);
 }
