@@ -52,7 +52,7 @@ const inputB = document.getElementById("quadroB"); // fiz uma const que o input 
 
 const imagePersonagem = document.getElementById("imagePersonagem"); // coloquei um elemento da imagem de erro
 
-const imagemErro = "../img/erro.avif"; // coloquei a imagem de erro
+const imagemErro = "./img/erro.avif"; // coloquei a imagem de erro
 
 document.getElementById("btnB").addEventListener("click", () => {
   const busca = inputB.value.toLowerCase(); // fiz uma ação pro botão de busca em relação ao inputB(quadroB)
