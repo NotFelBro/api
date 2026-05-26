@@ -116,7 +116,7 @@ document.getElementById("btnV").addEventListener("click", () => {
   if (indexAtual > 0) {
     // o usuário só retorna até o personagem 0 "harry potter"
 
-    indexAtual--; // retomda
+    indexAtual--; // retomada
 
     mostrarPersonagem(indexAtual); //mostra o personagem
   }
