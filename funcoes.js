@@ -35,10 +35,10 @@ function mostrarPersonagem(index) {
 
   if (!p) return; // retorna caso não houver informações
 
-  document.getElementById("quadro1").value = p.name; // nome
-  document.getElementById("quadro2").value = p.name; //espécie
-  document.getElementById("quadro3").value = p.name; //casa
-  document.getElementById("quadro4").value = p.name; //ator
+  document.getElementById("quadro1").value = p.name || "Desconhecido"; // nome
+  document.getElementById("quadro2").value = p.species || "Desconhecido"; //espécie
+  document.getElementById("quadro3").value = p.house || "Sem casa"; //casa
+  document.getElementById("quadro4").value = p.actor || "Desconhecido"; //ator
 
   if (!p.image) {
     //informação de imagem
