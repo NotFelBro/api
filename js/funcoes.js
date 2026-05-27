@@ -83,10 +83,10 @@ document.getElementById("btnB").addEventListener("click", () => {
     if (!isNaN(busca)) {
       // uma função para verificar se o valor é um número
 
-      const id = parseInt(busca, 10); // conversão de string
+      const id = parseInt(busca, 10) - 1; // conversão de string para inteiro (fiz uma subtração para o personagem principal começar com 1)
 
       if (id >= 0 && id < personagens.length) {
-        //validação
+        // valor do indice (array)
 
         encontrado = id; // verificado
       }
