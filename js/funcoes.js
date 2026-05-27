@@ -1,6 +1,6 @@
 let personagens = []; //armazenar meus personagens
 
-let indexAtual = -1; //indice para não mostrar o harry de inicio
+let indexAtual = 0; //indice para não mostrar o harry de inicio
 
 async function carregarPersonagens() {
   //essa função é pra buscar os personagens
@@ -18,7 +18,8 @@ async function carregarPersonagens() {
       ); // se aconecer alguma coisa, ele manda o erro no console
     }
 
-    personagens = await response.json(); // ele faz conversão da array e salva
+    personagens = await response.json();
+    mostrarPersonagem(0); // ele faz conversão da array e salva
   } catch (error) {
     // pega qualquer erro
 
@@ -55,7 +56,7 @@ const imagePersonagem = document.getElementById("imagePersonagem"); // coloquei 
 const imagemErro = "./img/erro.avif"; // coloquei a imagem de erro
 
 document.getElementById("btnB").addEventListener("click", () => {
-  const busca = inputB.value.toLowerCase(); // fiz uma ação pro botão de busca em relação ao inputB(quadroB)
+  const busca = inputB.value.trim(); // fiz uma ação pro botão de busca em relação ao inputB(quadroB)
 
   if (busca === "") {
     // se o campo do quadroB estiver vazio
@@ -72,11 +73,18 @@ document.getElementById("btnB").addEventListener("click", () => {
   try {
     // aqui também tem uma estrutura de erro
 
-    const encontrado = personagens.findIndex(
-      (
-        p, // uma ação para mostrar as descrições dos personagens puxadas do arry
-      ) => p.name.toLowerCase().includes(busca),
-    );
+    let encontrado = -1;
+
+    if (!isNaN(busca)) {
+      const id = parseInt(busca, 10);
+      if (id >= 0 && id < personagens.length) {
+        encontrado = id;
+      }
+    } else {
+      encontrado = personagens.findIndex((p) =>
+        p.name.toLowerCase().includes(busca.toLowerCase()),
+      );
+    }
 
     if (encontrado === -1) {
       throw new Error(`Personagem "${busca}" não encontrado.`); // se o usuário escrever qualquer bobeira, vai avisar no console
@@ -102,10 +110,13 @@ document.getElementById("btnB").addEventListener("click", () => {
   }
 });
 
-document.getElementById("quadroB").addEventListener("input", () => {
-  // elemento do quadroB sem o inputB
+document.getElementById("quadroB").addEventListener("keydown", (e) => {
+  if (e.key === "Enter") {
+    document.getElementById("btnB").click();
+  }
+  // elemento do quadroB sem o inputB, com uma função de interação sem precisar usar o botão de busca
 
-  inputB.placeholder = "Digite o nome do personagem"; // um aviso dentro do campo do quadroB
+  inputB.placeholder = "Digite o nome ou ID do personagem"; // um aviso dentro do campo do quadroB
 
   inputB.classList.remove("erro"); // remoção do método até o usuário escrever coisa nada haver
 });
