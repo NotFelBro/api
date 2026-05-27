@@ -37,13 +37,18 @@ function mostrarPersonagem(index) {
   if (!p) return; // retorna caso não houver informações
 
   document.getElementById("quadro1").value = p.name || "Desconhecido"; // nome
+
   document.getElementById("quadro2").value = p.species || "Desconhecido"; //espécie
+
   document.getElementById("quadro3").value = p.house || "Sem casa"; //casa
-  document.getElementById("quadro4").value = p.actor || "Desconhecido"; //ator
+
+  document.getElementById("quadro4").value = p.actor || "Desconhecido"; // ator
 
   if (!p.image) {
     //informação de imagem
-    console.warn(`Peronsagem "${p.name}" não possui imagem.`); //um alarme vai aparecer no console, caso o personagem não tenha imagem
+
+    console.warn(`Personagem "${p.name}" não possui imagem.`);
+    //um alarme vai aparecer no console, caso o personagem não tenha imagem
   }
 
   document.getElementById("imagePersonagem").src = p.image || imagemErro; // um elemento que mostra a imagem do personagem e se o personagem não tiver imagem, aparece aimagem de erro no lugar
