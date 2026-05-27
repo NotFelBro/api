@@ -81,9 +81,14 @@ document.getElementById("btnB").addEventListener("click", () => {
     let encontrado = -1;
 
     if (!isNaN(busca)) {
-      const id = parseInt(busca, 10);
+      // uma função para verificar se o valor é um número
+
+      const id = parseInt(busca, 10); // conversão de string
+
       if (id >= 0 && id < personagens.length) {
-        encontrado = id;
+        //validação
+
+        encontrado = id; // verificado
       }
     } else {
       encontrado = personagens.findIndex((p) =>
@@ -119,8 +124,9 @@ document.getElementById("quadroB").addEventListener("keydown", (e) => {
   if (e.key === "Enter") {
     document.getElementById("btnB").click();
   }
-  // elemento do quadroB sem o inputB, com uma função de interação sem precisar usar o botão de busca
+}); // elemento do quadroB sem o inputB, com uma função de interação sem precisar usar o botão de busca
 
+document.getElementById("quadroB").addEventListener("input", () => {
   inputB.placeholder = "Digite o nome ou ID do personagem"; // um aviso dentro do campo do quadroB
 
   inputB.classList.remove("erro"); // remoção do método até o usuário escrever coisa nada haver
