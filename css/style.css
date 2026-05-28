@@ -444,3 +444,81 @@ article button:active {
     height: 55px;
   }
 }
+
+@media (max-height: 600px) {
+  main h2 {
+    margin-top: 10px;
+    font-size: 1.1rem;
+  }
+
+  section {
+    flex-direction: row;
+    margin-top: 10px;
+    gap: 20px;
+    padding: 0 20px;
+    align-items: flex-start;
+  }
+
+  section img {
+    width: 280px;
+    height: 280px;
+  }
+
+  article {
+    gap: 20px;
+    width: 280px;
+  }
+
+  article input {
+    height: 44px;
+    font-size: 13px;
+  }
+
+  article button {
+    height: 38px;
+    font-size: 12px;
+  }
+}
+
+@media (max-height: 430px) {
+  main h2 {
+    margin-top: 10px;
+    font-size: 1rem;
+    letter-spacing: 1px;
+  }
+  section {
+    flex-direction: row;
+    margin-top: 8px;
+    gap: 14px;
+    padding: 0 14px;
+  }
+
+  section img {
+    width: 200px;
+    height: 200px;
+  }
+
+  article {
+    gap: 12px;
+    width: 220px;
+  }
+
+  article input {
+    height: 38px;
+    font-size: 12px;
+  }
+
+  article button {
+    height: 34px;
+    font-size: 11px;
+  }
+
+  header {
+    height: 46px;
+    min-height: 46px;
+  }
+
+  header img {
+    width: 100px;
+  }
+}

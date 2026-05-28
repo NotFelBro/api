@@ -1,6 +1,6 @@
 let personagens = []; //armazenar meus personagens
 
-let indexAtual = 0; //indice para não mostrar o harry de inicio
+let indexAtual = 0; //indice para mostrar o harry de inicio (corrigi usando isnun)
 
 async function carregarPersonagens() {
   //essa função é pra buscar os personagens
@@ -15,7 +15,7 @@ async function carregarPersonagens() {
 
       throw new Error(
         `Erro ${response.status} - Falha ao carregar personagens.`,
-      ); // se aconecer alguma coisa, ele manda o erro no console
+      ); // se aconecer alguma coisa, ele manda o status de erro
     }
 
     personagens = await response.json();
